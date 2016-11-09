@@ -23,6 +23,7 @@ gem 'draper', '~> 3.0.0.pre1'
 group :production do
   gem 'lograge'
   gem 'exception_notification'
+  gem 'rack-timeout'
 end
 
 group :development, :test do
