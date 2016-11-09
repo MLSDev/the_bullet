@@ -26,6 +26,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'awesome_print', require: 'ap'
 end
 
 group :development do
