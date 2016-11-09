@@ -5,6 +5,8 @@ AllCops:
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
+    - 'bin/cap'
+    - 'bin/capify'
 
 Rails:
   Enabled: true
