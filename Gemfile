@@ -19,6 +19,10 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'dotenv'
 
+group :production do
+  gem 'lograge'
+end
+
 group :development, :test do
   gem 'rspec-rails'
 end
