@@ -24,6 +24,7 @@ group :production do
   gem 'lograge'
   gem 'exception_notification'
   gem 'rack-timeout'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
