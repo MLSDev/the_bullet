@@ -16,6 +16,7 @@ gem 'turbolinks', '~> 5'
 # gem 'capistrano-rails', group: :development
 
 gem 'rack-cors', require: 'rack/cors'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'
