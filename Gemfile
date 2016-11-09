@@ -17,6 +17,7 @@ gem 'turbolinks', '~> 5'
 
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
+gem 'dotenv'
 
 group :development, :test do
   gem 'rspec-rails'
