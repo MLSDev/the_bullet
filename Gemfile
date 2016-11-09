@@ -22,6 +22,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
+  gem 'rubocop'
 end
 
 group :test do
