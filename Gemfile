@@ -23,3 +23,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+end
