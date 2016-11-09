@@ -15,6 +15,8 @@ gem 'turbolinks', '~> 5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rack-cors', require: 'rack/cors'
+
 group :development, :test do
   gem 'rspec-rails'
 end
