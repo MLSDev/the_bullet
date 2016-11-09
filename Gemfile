@@ -28,4 +28,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'rspec-activemodel-mocks'
+  gem 'rspec-its'
 end
