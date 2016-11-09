@@ -12,9 +12,6 @@ gem 'turbolinks', '~> 5'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'dotenv'
@@ -37,6 +34,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'rubocop'
   gem 'capistrano'
+  gem 'capistrano-rails'
 end
 
 group :test do
