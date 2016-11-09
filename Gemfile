@@ -22,6 +22,7 @@ gem 'draper', '~> 3.0.0.pre1'
 
 group :production do
   gem 'lograge'
+  gem 'exception_notification'
 end
 
 group :development, :test do
