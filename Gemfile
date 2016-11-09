@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'dotenv'
+gem 'draper', '~> 3.0.0.pre1'
 
 group :production do
   gem 'lograge'
