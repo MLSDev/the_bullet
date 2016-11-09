@@ -36,6 +36,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'rubocop'
+  gem 'capistrano'
 end
 
 group :test do
