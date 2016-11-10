@@ -11,6 +11,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
 gem 'dotenv'
 gem 'draper', '~> 3.0.0.pre1'
+gem 'pundit'
 
 group :production do
   gem 'lograge'
