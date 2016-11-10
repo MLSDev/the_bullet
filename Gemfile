@@ -30,7 +30,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
-  gem 'rubocop'
+  gem 'rubocop', require: false
   gem 'capistrano'
   gem 'capistrano-rails'
   # gem 'bullet'
