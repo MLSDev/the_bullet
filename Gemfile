@@ -13,6 +13,7 @@ gem 'dotenv'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'pundit'
 gem 'sidekiq'
+# gem 'rpush
 
 group :production do
   gem 'lograge'
@@ -32,6 +33,9 @@ group :development do
   gem 'rubocop'
   gem 'capistrano'
   gem 'capistrano-rails'
+  # gem 'bullet'
+  # gem 'lol_dba'
+  # gem 'brakeman'
 end
 
 group :test do
