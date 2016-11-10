@@ -21,5 +21,8 @@
 .byebug_history
 
 .env
-coverage/*
+/config/cable.yml
+/config/database.yml
+/config/secrets.yml
+/coverage/*
 
