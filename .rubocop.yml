@@ -36,6 +36,26 @@ Style/FlipFlop:
   StyleGuide: '#no-flip-flops'
   Enabled: true
 
+# Recheck this cop later
+Style/RedundantException:
+  Description: "Checks for an obsolete RuntimeException argument in raise/fail."
+  StyleGuide: '#no-explicit-runtimeerror'
+  Enabled: true
+
+# Recheck this cop later
+Style/SafeNavigation:
+  Description: >-
+                  This cop transforms usages of a method call safeguarded by
+                  a check for the existance of the object to
+                  safe navigation (`&.`).
+  Enabled: true
+
+# Recheck this cop later
+Style/SignalException:
+  Description: 'Checks for proper usage of fail and raise.'
+  StyleGuide: '#prefer-raise-over-fail'
+  Enabled: true
+
 
 # Rails:
 #   Enabled: true
