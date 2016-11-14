@@ -251,7 +251,7 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-its
   rspec-rails
-  rubocop
+  rubocop (= 0.45.0)
   shoulda-matchers
   sidekiq
   simplecov
