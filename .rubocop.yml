@@ -56,6 +56,10 @@ Style/SignalException:
   StyleGuide: '#prefer-raise-over-fail'
   Enabled: true
 
+# Enable with EnforcedStyle is space
+Style/SpaceInsideStringInterpolation:
+  EnforcedStyle: space
+  Enabled: true
 
 # Rails:
 #   Enabled: true
