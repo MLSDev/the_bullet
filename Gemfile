@@ -9,7 +9,7 @@ gem 'puma'
 
 gem 'rack-cors', require: 'rack/cors'
 gem 'kaminari'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'pundit'
 gem 'sidekiq'
