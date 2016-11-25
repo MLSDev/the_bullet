@@ -44,5 +44,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rspec-activemodel-mocks'
   gem 'rspec-its'
+  gem 'shoulda-callback-matchers'
   gem 'simplecov', require: false
 end

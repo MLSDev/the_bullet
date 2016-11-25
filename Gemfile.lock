@@ -197,6 +197,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
+    shoulda-callback-matchers (1.1.4)
+      activesupport (>= 3)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
     sidekiq (4.2.6)
@@ -255,6 +257,7 @@ DEPENDENCIES
   rspec-its
   rspec-rails
   rubocop (= 0.45.0)
+  shoulda-callback-matchers
   shoulda-matchers
   sidekiq
   simplecov
