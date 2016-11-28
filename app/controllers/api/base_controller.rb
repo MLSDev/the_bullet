@@ -34,10 +34,8 @@ module Api
       render :errors, status: :unprocessable_entity
     end
 
-    rescue_from ActiveRecord::RecordNotFound do |exception|
-      @exception = exception
-
-      render :exception, status: :not_found
+    rescue_from ActiveRecord::RecordNotFound do
+      head :not_found
     end
 
     private
