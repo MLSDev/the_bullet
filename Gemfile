@@ -4,7 +4,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sqlite3'
 gem 'puma'
 
-# gem 'redis', '~> 3.0'
+gem 'redis'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rack-cors', require: 'rack/cors'
@@ -13,7 +13,7 @@ gem 'dotenv-rails'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'pundit'
 gem 'sidekiq'
-# gem 'rpush
+# gem 'rpush'
 
 group :production do
   gem 'lograge'
