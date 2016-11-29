@@ -12,7 +12,7 @@ gem 'dotenv-rails'
 gem 'draper', '~> 3.0.0.pre1'
 gem 'pundit'
 gem 'sidekiq'
-# gem 'rpush'
+gem 'rpush'
 
 group :production do
   gem 'lograge'
