@@ -13,6 +13,7 @@ gem 'draper', '~> 3.0.0.pre1'
 gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
+gem 'paperclip'
 
 group :production do
   gem 'lograge'
