@@ -129,6 +129,8 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
+    paperclip-meta (3.0.0)
+      paperclip (~> 5.0)
     parser (2.3.3.0)
       ast (~> 2.2)
     powerpack (0.1.1)
@@ -273,6 +275,7 @@ DEPENDENCIES
   lograge
   newrelic_rpm
   paperclip
+  paperclip-meta
   pry-rails
   puma
   pundit

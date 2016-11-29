@@ -14,6 +14,7 @@ gem 'pundit'
 gem 'sidekiq'
 gem 'rpush'
 gem 'paperclip'
+gem 'paperclip-meta'
 
 group :production do
   gem 'lograge'
