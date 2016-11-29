@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'puma'
 
 gem 'redis'
+gem 'redis-objects'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'rack-cors', require: 'rack/cors'
