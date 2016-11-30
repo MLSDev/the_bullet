@@ -120,3 +120,7 @@ Style/MultilineAssignmentLayout:
 # Use %i or %I for arrays of symbols
 Style/SymbolArray:
   Enabled: true
+
+# Just ignore order of gems in Gemfile
+Bundler/OrderedGems:
+  Enabled: false
