@@ -32,7 +32,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   # rubocop version locked due config. Update rubocop config on gem update.
-  gem 'rubocop', '0.45.0', require: false
+  gem 'rubocop', '0.46.0', require: false
   gem 'capistrano'
   gem 'capistrano-rails'
   # gem 'bullet'
