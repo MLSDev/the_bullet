@@ -40,6 +40,7 @@ Style/DotPosition:
   Enabled: true
 
 # Disable magic
+# TODO: change to Enabled: true with EnforcedStyle never after next rubocop update
 Style/FrozenStringLiteralComment:
   Enabled: false
 
