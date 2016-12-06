@@ -12,6 +12,8 @@ AllCops:
     - 'bin/capify'
     - 'bin/sidekiq'
     - 'bin/sidekiqctl'
+    - 'bin/whenever'
+    - 'bin/wheneverize'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
