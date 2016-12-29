@@ -121,7 +121,7 @@ GEM
     net-ssh (4.0.0)
     newrelic_rpm (3.17.2.327)
     nio4r (1.2.1)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
