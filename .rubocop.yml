@@ -4,6 +4,7 @@ AllCops:
     - 'Capfile'
     - 'db/schema.rb'
     - 'bin/brakeman'
+    - 'bin/rpush'
     - 'bin/rspec'
     - 'bin/rubocop'
     - 'bin/setup'
@@ -41,10 +42,9 @@ Style/DotPosition:
   StyleGuide: '#consistent-multi-line-chains'
   Enabled: true
 
-# Disable magic
-# TODO: change to Enabled: true with EnforcedStyle never after next rubocop update
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: true
+  EnforcedStyle: never
 
 # Recheck this cop later
 Style/FlipFlop:
