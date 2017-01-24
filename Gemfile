@@ -15,6 +15,7 @@ gem 'sidekiq'
 gem 'rpush'
 gem 'paperclip'
 gem 'paperclip-meta'
+gem 'swagger-blocks'
 
 group :production do
   gem 'lograge'
