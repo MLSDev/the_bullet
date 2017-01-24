@@ -1,24 +1,27 @@
-# README
+# Rails application template for API-only applications Edit
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Environment
 
-Things you may want to cover:
+* Ruby 2.4.0
+* RubyGems 2.6.8
+* Bundler 1.13.7
+* Ruby on Rails 5.0.1
 
-* Ruby version
+## Guides
 
-* System dependencies
+* [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
+* [Ruby on Rails style guide](https://github.com/bbatsov/rails-style-guide)
+* [Security Guide for Developers](https://github.com/FallibleInc/security-guide-for-developers)
+* [Rails SQL Injection](http://rails-sqli.org)
+* [Swagger specification](http://swagger.io/specification/)
 
-* Configuration
+## About MLSDev
 
-* Database creation
+[<img src="https://github.com/MLSDev/development-standards/raw/master/mlsdev-logo.png" alt="MLSDev.com">][mlsdev]
 
-* Database initialization
+`the_buller` is maintained by MLSDev, Inc. We specialize in providing all-in-one solution in mobile and web development. Our team follows Lean principles and works according to agile methodologies to deliver the best results reducing the budget for development and its timeline.
 
-* How to run the test suite
+Find out more [here][mlsdev] and don't hesitate to [contact us][contact]!
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[mlsdev]: http://mlsdev.com
+[contact]: http://mlsdev.com/contact_us
