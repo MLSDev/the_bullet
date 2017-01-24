@@ -50,4 +50,5 @@ group :test do
   gem 'rspec-its'
   gem 'shoulda-callback-matchers'
   gem 'simplecov', require: false
+  gem 'database_cleaner'
 end
