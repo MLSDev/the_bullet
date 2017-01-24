@@ -25,4 +25,4 @@
 /config/database.yml
 /config/secrets.yml
 /coverage/*
-
+/.idea/*
