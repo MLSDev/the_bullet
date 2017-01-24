@@ -3,10 +3,10 @@ class UserDecorator < Draper::Decorator
 
   def as_json(*)
     {
-        id: id,
-        email: email,
-        created_at: created_at,
-        updated_at: updated_at
+      id: id,
+      email: email,
+      created_at: created_at,
+      updated_at: updated_at
     }
   end
 
