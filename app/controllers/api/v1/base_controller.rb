@@ -29,6 +29,7 @@ module Api
         head :ok
       end
 
+      # :nocov:
       rescue_from ActionController::ParameterMissing do |exception|
         @exception = exception
 
@@ -42,6 +43,7 @@ module Api
       rescue_from ActiveRecord::RecordNotFound do
         head :not_found
       end
+      # :nocov:
 
       private
 
