@@ -3,7 +3,11 @@ module Api
     class BaseController < ApplicationController
       protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
-      helper_method :collection, :resource
+      before_action :authenticate
+
+      attr_reader :current_user
+
+      helper_method :collection, :resource, :parent, :current_user
 
       def show
         resource
@@ -40,6 +44,18 @@ module Api
       end
 
       private
+
+      def authenticate
+        authenticate_or_request_with_http_token do |token, options| # rubocop:disable Lint/UnusedBlockArgument
+          @current_user = User.joins(:sessions)
+                              .where(sessions: { token: token })
+                              .first
+        end
+      end
+
+      def parent
+        raise NotImplementedError
+      end
 
       def resource
         raise NotImplementedError
