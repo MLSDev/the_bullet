@@ -27,6 +27,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'awesome_print', require: 'ap'
+  gem 'faker'
   gem 'factory_girl_rails'
 end
 
