@@ -7,6 +7,17 @@
 * Bundler 1.13.7
 * Ruby on Rails 5.0.1
 
+## Configure Swagger UI
+
+* `cd public`
+* `git clone https://github.com/swagger-api/swagger-ui.git`
+* `cd swagger-ui/`
+* `git checkout v2.2.10`
+
+Change `url = "http://petstore.swagger.io/v2/swagger.json";` to `url = "http://localhost:3000/api/v1/docs.json";` in `public/dist/index.html`
+
+Open `http://localhost:3000/dist/index.html` in browser.
+
 ## Guides
 
 * [Ruby coding style guide](https://github.com/bbatsov/ruby-style-guide)
