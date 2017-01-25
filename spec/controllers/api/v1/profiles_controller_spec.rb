@@ -18,7 +18,7 @@ describe Api::V1::ProfilesController do
       it { should respond_with(:ok) }
     end
 
-    context 'failed authorization' do
+    context 'not authorized' do
       before { get :show, params: { format: :json } }
 
       it { should respond_with(:unauthorized) }
