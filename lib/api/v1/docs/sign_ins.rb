@@ -22,6 +22,7 @@ module Api
               key :in, :formData
               key :required, true
               key :type, :string
+              key :format, :password
               key :description, 'User password'
             end
             response '200' do
