@@ -23,6 +23,10 @@ module Api
           key :name, 'sign out'
           key :description, 'Sign Out operations'
         end
+        tag do
+          key :name, 'profile'
+          key :description, 'Profile operations'
+        end
         key :host, 'localhost:3000'
         key :basePath, '/api/v1'
         key :consumes, ['application/json']
@@ -38,8 +42,9 @@ module Api
         Api::V1::Docs::SignUps,
         Api::V1::Docs::SignIns,
         Api::V1::Docs::SignOuts,
+        Api::V1::Docs::Profiles,
 
-        self,
+        self
       ].freeze
       # :nocov:
 
