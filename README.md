@@ -4,7 +4,7 @@
 
 * Ruby 2.4.0
 * RubyGems 2.6.8
-* Bundler 1.13.7
+* Bundler 1.14.3
 * Ruby on Rails 5.0.1
 
 ## Configure Swagger UI
