@@ -2,7 +2,7 @@ module Api
   module V1
     module Docs
       module Shared
-        module SwaggerUnauthorized
+        module Unauthorized
           def self.extended(base)
             base.response '401' do
               key :description, 'Unauthorized'

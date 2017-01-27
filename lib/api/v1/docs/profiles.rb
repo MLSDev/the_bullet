@@ -17,7 +17,7 @@ module Api
                 key :'$ref', :OutputUser
               end
             end
-            extend Api::V1::Docs::Shared::SwaggerUnauthorized
+            extend Api::V1::Docs::Shared::Unauthorized
           end
         end
         # :nocov:

@@ -14,7 +14,7 @@ module Api
             response '200' do
               key :description, 'Success'
             end
-            extend Api::V1::Docs::Shared::SwaggerUnauthorized
+            extend Api::V1::Docs::Shared::Unauthorized
           end
         end
         # :nocov:

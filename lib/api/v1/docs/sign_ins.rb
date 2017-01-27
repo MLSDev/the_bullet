@@ -31,7 +31,7 @@ module Api
                 key :'$ref', :OutputSession
               end
             end
-            extend Api::V1::Docs::Shared::SwaggerUnprocessableEntity
+            extend Api::V1::Docs::Shared::UnprocessableEntity
           end
         end
         # :nocov:
