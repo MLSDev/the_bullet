@@ -24,9 +24,7 @@ module Api
                 key :'$ref', :OutputUser
               end
             end
-            response '401' do
-              key :description, 'Unauthorized'
-            end
+            extend Api::V1::Docs::Shared::SwaggerUnauthorized
           end
         end
         # :nocov:
