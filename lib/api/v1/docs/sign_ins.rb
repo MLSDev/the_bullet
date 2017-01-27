@@ -31,12 +31,7 @@ module Api
                 key :'$ref', :OutputSession
               end
             end
-            response '422' do
-              key :description, 'Unprocessable Entity'
-              schema do
-                key :'$ref', :UnprocessableEntity
-              end
-            end
+            extend Api::V1::Docs::Shared::SwaggerUnprocessableEntity
           end
         end
         # :nocov:
