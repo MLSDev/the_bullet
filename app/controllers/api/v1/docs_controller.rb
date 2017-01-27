@@ -31,6 +31,14 @@ module Api
         key :basePath, '/api/v1'
         key :consumes, ['application/json']
         key :produces, ['application/json']
+        parameter :authorization do
+          key :name, 'Authorization'
+          key :in, :header
+          key :description, 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
+          key :default, 'Bearer ACCESS_TOKEN'
+          key :required, true
+          key :type, :string
+        end
       end
 
       # A list of all classes that have swagger_* declarations.

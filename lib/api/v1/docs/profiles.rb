@@ -10,14 +10,7 @@ module Api
             key :summary, 'Profile'
             key :description, 'Get user profile'
             key :tags, ['profile']
-            parameter do
-              key :name, 'Authorization'
-              key :in, :header
-              key :description, 'User auth token. Example: Bearer AAkoMiLatQHMngyuUU1vnh5b'
-              key :default, 'Bearer ACCESS_TOKEN'
-              key :required, true
-              key :type, :string
-            end
+            parameter :authorization
             response '200' do
               key :description, 'Success'
               schema do
