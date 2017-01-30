@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
 
   has_secure_password
+
+  has_secure_token :reset_token
 end

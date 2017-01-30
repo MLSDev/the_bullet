@@ -27,6 +27,14 @@ module Api
           key :name, 'profile'
           key :description, 'Profile operations'
         end
+        tag do
+          key :name, 'request password reset'
+          key :description, 'Request password reset'
+        end
+        tag do
+          key :name, 'password reset'
+          key :description, 'Password reset'
+        end
         key :host, 'localhost:3000'
         key :basePath, '/api/v1'
         key :consumes, ['application/json']
@@ -51,6 +59,8 @@ module Api
         Api::V1::Docs::SignIns,
         Api::V1::Docs::SignOuts,
         Api::V1::Docs::Profiles,
+        Api::V1::Docs::RequestPasswordResets,
+        Api::V1::Docs::PasswordResets,
 
         self
       ].freeze

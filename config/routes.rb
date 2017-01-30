@@ -10,6 +10,10 @@ Rails.application.routes.draw do
       resource :sign_out, only: :destroy
 
       resource :profile, only: :show
+
+      resource :request_password_reset, only: :create
+
+      resource :password_reset, only: :create
     end
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124124246) do
+ActiveRecord::Schema.define(version: 20170127143651) do
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170124124246) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "reset_token"
+    t.index ["reset_token"], name: "index_users_on_reset_token", unique: true
   end
 
 end
