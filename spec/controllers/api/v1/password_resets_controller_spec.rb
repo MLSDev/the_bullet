@@ -5,6 +5,48 @@ describe Api::V1::PasswordResetsController do
 
   it { should_not use_before_action(:authenticate) }
 
+  describe '#create.json' do
+    context 'successful' do
+      let!(:user) { create(:user) }
+
+      before do
+        post :create, params: { reset_token: user.reset_token,
+                                password: 'new password',
+                                password_confirmation: 'new password',
+                                format: :json }
+      end
+
+      it { should render_template(:create) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'reset token not found' do
+      before do
+        post :create, params: { reset_token: 'wrong reset token', format: :json }
+      end
+
+      it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
+
+    context "password and confirmation doesn't match" do
+      let!(:user) { create(:user) }
+
+      before do
+        post :create, params: { reset_token: user.reset_token,
+                                password: 'new password',
+                                password_confirmation: 'wrong confirmation',
+                                format: :json }
+      end
+
+      it { should render_template(:errors) }
+
+      it { should respond_with(:unprocessable_entity) }
+    end
+  end
+
   # private methods
 
   describe '#build_resource' do
