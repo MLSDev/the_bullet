@@ -15,7 +15,7 @@ module Api
             end
             property :token do
               key :type, :string
-              key :description, 'Session email'
+              key :description, 'Session token'
             end
             property :created_at do
               key :type, :string
@@ -25,6 +25,10 @@ module Api
               key :type, :string
               key :description, 'Updated at in ISO8601 format'
             end
+            key :example, { id: 123,
+                            token: 'AAkoMiLatQHMngyuUU1vnh5b',
+                            created_at: Time.zone.now.iso8601,
+                            updated_at: Time.zone.now.iso8601 }
           end
           # :nocov:
         end

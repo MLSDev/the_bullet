@@ -25,6 +25,10 @@ module Api
               key :type, :string
               key :description, 'Updated at in ISO8601 format'
             end
+            key :example, { id: 42,
+                            email: 'me@example.com',
+                            created_at: Time.zone.now.iso8601,
+                            updated_at: Time.zone.now.iso8601 }
           end
           # :nocov:
         end

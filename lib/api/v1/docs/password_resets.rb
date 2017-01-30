@@ -8,7 +8,7 @@ module Api
         swagger_path '/password_reset' do
           operation :post do
             key :summary, 'Password reset'
-            key :description, 'Password reset'
+            key :description, 'Password reset. On success, remove all user sessions, create new session and return it.'
             key :tags, ['password reset']
             parameter do
               key :name, :reset_token
@@ -39,8 +39,7 @@ module Api
                 key :'$ref', :OutputSession
               end
             end
-            # Reset token not found
-            # Passwords are not identical
+            extend Api::V1::Docs::Shared::UnprocessableEntity
           end
         end
         # :nocov:

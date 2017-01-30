@@ -8,7 +8,7 @@ module Api
         swagger_path '/sign_up' do
           operation :post do
             key :summary, 'Sign up'
-            key :description, 'Sign up new user'
+            key :description, 'Sign up new user.'
             key :tags, ['sign up']
             parameter do
               key :name, :email

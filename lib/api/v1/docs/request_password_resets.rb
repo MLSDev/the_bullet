@@ -8,7 +8,7 @@ module Api
         swagger_path '/request_password_reset' do
           operation :post do
             key :summary, 'Request password reset'
-            key :description, 'Request password reset'
+            key :description, 'Request password reset. On success, send email to user with instruction.'
             key :tags, ['request password reset']
             parameter do
               key :name, :email
