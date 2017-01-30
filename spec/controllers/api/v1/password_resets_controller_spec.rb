@@ -23,7 +23,10 @@ describe Api::V1::PasswordResetsController do
 
     context 'reset token not found' do
       before do
-        post :create, params: { reset_token: 'wrong reset token', format: :json }
+        post :create, params: { reset_token: 'wrong reset token',
+                                password: 'new password',
+                                password_confirmation: 'new password',
+                                format: :json }
       end
 
       it { should render_template(:errors) }
