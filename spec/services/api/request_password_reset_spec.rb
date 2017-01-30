@@ -27,6 +27,17 @@ describe Api::RequestPasswordReset do
 
       subject { described_class.new(params) }
 
+      before do
+        #
+        # ResetPasswordMailer.email(user.id).deliver_later
+        #
+        expect(ResetPasswordMailer).to receive(:email).with(user.id) do
+          double.tap do |a|
+            expect(a).to receive(:deliver_later)
+          end
+        end
+      end
+
       specify { expect { subject.save! }.not_to raise_error }
 
       # TODO: specify { expect { subject.save! }.to change { user.reset_token } } #.from(0).to(1) }

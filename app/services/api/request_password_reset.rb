@@ -14,6 +14,8 @@ module Api
       raise ActiveModel::StrictValidationFailed unless valid?
 
       user.regenerate_reset_token
+
+      ResetPasswordMailer.email(user.id).deliver_later
     end
 
     private
