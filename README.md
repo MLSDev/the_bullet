@@ -14,7 +14,7 @@
 * `cd swagger-ui/`
 * `git checkout v2.2.10`
 
-Change `url = "http://petstore.swagger.io/v2/swagger.json";` to `url = "http://localhost:3000/api/v1/docs.json";` in `public/dist/index.html`
+Change `url = "http://petstore.swagger.io/v2/swagger.json";` to `url = "http://localhost:3000/api/docs.json";` in `public/dist/index.html`
 
 Open `http://localhost:3000/dist/index.html` in browser.
 
