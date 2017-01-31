@@ -35,7 +35,7 @@ module Api
         key :description, 'Password reset'
       end
       key :host, 'localhost:3000'
-      key :basePath, '/api/v1'
+      key :basePath, '/api'
       key :consumes, ['application/json']
       key :produces, ['application/json']
       parameter :authorization do
@@ -50,16 +50,16 @@ module Api
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
-      Api::V1::Docs::Models::OutputUser,
-      Api::V1::Docs::Models::OutputSession,
-      Api::V1::Docs::Models::UnprocessableEntity,
+      Api::Docs::Models::OutputUser,
+      Api::Docs::Models::OutputSession,
+      Api::Docs::Models::UnprocessableEntity,
 
-      Api::V1::Docs::SignUps,
-      Api::V1::Docs::SignIns,
-      Api::V1::Docs::SignOuts,
-      Api::V1::Docs::Profiles,
-      Api::V1::Docs::RequestPasswordResets,
-      Api::V1::Docs::PasswordResets,
+      Api::Docs::SignUps,
+      Api::Docs::SignIns,
+      Api::Docs::SignOuts,
+      Api::Docs::Profiles,
+      Api::Docs::RequestPasswordResets,
+      Api::Docs::PasswordResets,
 
       self
     ].freeze
