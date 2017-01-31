@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Api::V1::PasswordResetsController do
-  it { should be_a(Api::V1::BaseController) }
+describe Api::PasswordResetsController do
+  it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate) }
 

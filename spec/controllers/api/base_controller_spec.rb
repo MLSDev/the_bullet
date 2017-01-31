@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::V1::BaseController do
+describe Api::BaseController do
   it { should be_a(ApplicationController) }
 
   it { should use_before_action(:authenticate) }

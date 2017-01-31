@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Api::V1::SignUpsController do
-  it { should be_a(Api::V1::BaseController) }
+describe Api::SignUpsController do
+  it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate) }
 
