@@ -147,7 +147,7 @@ GEM
       mimemagic (~> 0.3.0)
     paperclip-meta (3.0.0)
       paperclip (~> 5.0)
-    parser (2.3.3.1)
+    parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.4)
