@@ -1,6 +1,6 @@
 module Api
   class RequestPasswordResetsController < BaseController
-    skip_before_action :authenticate
+    skip_before_action :authenticate!
 
     def create
       build_resource

@@ -2,7 +2,7 @@ module Api
   class BaseController < ApplicationController
     protect_from_forgery with: :exception, unless: -> { request.format.json? }
 
-    before_action :authenticate
+    before_action :authenticate!
 
     attr_reader :current_user
 
@@ -47,6 +47,14 @@ module Api
     private
 
     def authenticate
+      authenticate_with_http_token do |token,|
+        @current_user = User.joins(:sessions)
+                            .where(sessions: { token: token })
+                            .first
+      end
+    end
+
+    def authenticate!
       authenticate_or_request_with_http_token do |token,|
         @current_user = User.joins(:sessions)
                             .where(sessions: { token: token })
