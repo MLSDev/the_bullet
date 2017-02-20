@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
 
   namespace :backoffice, defaults: { format: 'json' } do
+    resources :docs, only: :index
+
     resource :sign_in, only: :create
   end
 end
