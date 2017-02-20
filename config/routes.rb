@@ -14,4 +14,8 @@ Rails.application.routes.draw do
 
     resource :password_reset, only: :create
   end
+
+  namespace :backoffice, defaults: { format: 'json' } do
+    resource :sign_in, only: :create
+  end
 end
