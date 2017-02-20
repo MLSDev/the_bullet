@@ -67,6 +67,8 @@ describe Api::BaseController do
 
   it { should rescue_from(ActiveRecord::RecordNotFound) }
 
+  # private methods
+
   describe '#authenticate' do
     let!(:user) { create(:user) }
 
