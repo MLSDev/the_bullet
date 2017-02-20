@@ -104,24 +104,24 @@ describe Backoffice::SignIn do
   end
 
   describe '#create_session!' do
-    # context '@session is set' do
-    #   let!(:session) { create(:session) }
-    #
-    #   before { subject.instance_variable_set(:@session, session) }
-    #
-    #   specify { expect(subject.send(:create_session!)).to eq(session) }
-    # end
+    context '@session is set' do
+      let!(:session) { create(:backoffice_session) }
 
-    # context '@session not set' do
-    #   let!(:user) { create(:user) }
-    #
-    #   let(:params) { { email: 'me@example.com', password: 'password' } }
-    #
-    #   subject { described_class.new(params) }
-    #
-    #   before { expect(subject).to receive(:user).and_return(user) }
-    #
-    #   specify { expect { subject.send(:create_session!) }.to change { user.sessions.count }.from(0).to(1) }
-    # end
+      before { subject.instance_variable_set(:@session, session) }
+
+      specify { expect(subject.send(:create_session!)).to eq(session) }
+    end
+
+    context '@session not set' do
+      let!(:superuser) { create(:backoffice_superuser) }
+
+      let(:params) { { email: 'me@example.com', password: 'password' } }
+
+      subject { described_class.new(params) }
+
+      before { expect(subject).to receive(:superuser).and_return(superuser) }
+
+      specify { expect { subject.send(:create_session!) }.to change { superuser.sessions.count }.from(0).to(1) }
+    end
   end
 end
