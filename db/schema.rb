@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 20170220120928) do
 
   create_table "backoffice_sessions", force: :cascade do |t|
+    t.integer  "superuser_id"
     t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "backoffice_superusers", force: :cascade do |t|
