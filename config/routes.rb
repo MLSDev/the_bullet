@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     resources :docs, only: :index
 
     resource :sign_in, only: :create
+
+    resource :sign_out, only: :destroy
   end
 end

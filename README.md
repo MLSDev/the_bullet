@@ -1,4 +1,4 @@
-# Rails application template for API-only applications Edit
+# Rails application template for API-only applications
 
 ## Environment
 
