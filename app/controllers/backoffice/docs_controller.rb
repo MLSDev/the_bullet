@@ -37,6 +37,7 @@ module Backoffice
       Backoffice::Docs::Models::OutputSession,
 
       Backoffice::Docs::SignIns,
+      Backoffice::Docs::SignOuts,
 
       self
     ].freeze
