@@ -26,5 +26,10 @@ module TheBullet
 
     # Configure ActiveJob to use sidekiq
     config.active_job.queue_adapter = :sidekiq
+
+    # Basic Authorization for Web Sidekiq credntials
+    Sidekiq::Web.use(Rack::Auth::Basic) do |user, password|
+      [user, password] == [ENV['SIDEKIQ_LOGIN'], ENV['SIDEKIQ_PASSWORD']]
+    end
   end
 end

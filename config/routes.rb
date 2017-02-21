@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #
+  # TODO: should we move it under api namespace?
+  #
+  mount Sidekiq::Web => '/sidekiq'
+
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
 
