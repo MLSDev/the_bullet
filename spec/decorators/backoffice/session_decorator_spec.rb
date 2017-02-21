@@ -2,31 +2,19 @@ require 'rails_helper'
 
 describe Backoffice::SessionDecorator do
   describe '#as_json' do
-    let(:session) do
-      stub_model Backoffice::Session,
-                 id: 1234,
-                 token: 'token123'
-    end
-
-    let(:created_at) { double }
-
-    let(:updated_at) { double }
+    let!(:session) { create(:backoffice_session) }
 
     let(:decorated_object) { session.decorate }
 
-    before { expect(decorated_object).to receive(:created_at).and_return(created_at) }
+    subject { session.decorate.as_json }
 
-    before { expect(decorated_object).to receive(:updated_at).and_return(updated_at) }
+    its([:id]) { should eq(session.id) }
 
-    subject { decorated_object.as_json }
+    its([:token]) { should eq(session.token) }
 
-    its([:id]) { should eq(1234) }
+    its([:created_at]) { should eq(session.created_at.iso8601) }
 
-    its([:token]) { should eq('token123') }
-
-    its([:created_at]) { should eq(created_at) }
-
-    its([:updated_at]) { should eq(updated_at) }
+    its([:updated_at]) { should eq(session.updated_at.iso8601) }
   end
 
   # private methods
