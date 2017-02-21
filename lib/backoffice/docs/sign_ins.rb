@@ -26,9 +26,9 @@ module Backoffice
           end
           response '200' do
             key :description, 'Success'
-            # schema do
-            #   key :'$ref', :OutputSession
-            # end
+            schema do
+              key :'$ref', :OutputSession
+            end
           end
           # extend Api::Docs::Shared::UnprocessableEntity
         end
