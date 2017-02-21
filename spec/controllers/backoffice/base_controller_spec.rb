@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-describe Api::BaseController do
+describe Backoffice::BaseController do
   it { should be_a(ApplicationController) }
 
   it { should use_before_action(:authenticate!) }
 
   describe '#current_user' do
-    let!(:user) { create(:user) }
+    let!(:superuser) { create(:backoffice_superuser) }
 
-    before { subject.instance_variable_set(:@current_user, user) }
+    before { subject.instance_variable_set(:@current_user, superuser) }
 
-    specify { expect(subject.current_user).to eq(user) }
+    specify { expect(subject.current_user).to eq(superuser) }
   end
 
   describe '#show' do
@@ -69,24 +69,14 @@ describe Api::BaseController do
 
   # private methods
 
-  describe '#authenticate' do
-    let!(:user) { create(:user) }
-
-    let!(:session) { create(:session, user: user) }
-
-    before { expect(subject).to receive(:authenticate_with_http_token).and_yield(session.token) }
-
-    specify { expect(subject.send(:authenticate)).to eq(user) }
-  end
-
   describe '#authenticate!' do
-    let!(:user) { create(:user) }
+    let!(:superuser) { create(:backoffice_superuser) }
 
-    let!(:session) { create(:session, user: user) }
+    let!(:session) { create(:backoffice_session, superuser: superuser) }
 
     before { expect(subject).to receive(:authenticate_or_request_with_http_token).and_yield(session.token) }
 
-    specify { expect(subject.send(:authenticate!)).to eq(user) }
+    specify { expect(subject.send(:authenticate!)).to eq(superuser) }
   end
 
   describe '#parent' do
