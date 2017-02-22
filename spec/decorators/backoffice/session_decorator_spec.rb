@@ -4,8 +4,6 @@ describe Backoffice::SessionDecorator do
   describe '#as_json' do
     let!(:session) { create(:backoffice_session) }
 
-    let(:decorated_object) { session.decorate }
-
     subject { session.decorate.as_json }
 
     its([:id]) { should eq(session.id) }
