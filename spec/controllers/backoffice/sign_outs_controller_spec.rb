@@ -7,9 +7,7 @@ describe Backoffice::SignOutsController do
 
   describe '#destroy.json' do
     context 'authorized' do
-      let!(:superuser) { create(:backoffice_superuser) }
-
-      let!(:session) { create(:backoffice_session, superuser: superuser) }
+      let!(:session) { create(:backoffice_session) }
 
       before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
 
