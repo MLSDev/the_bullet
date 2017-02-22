@@ -5,18 +5,8 @@ class SessionDecorator < Draper::Decorator
     {
       id: id,
       token: token,
-      created_at: created_at,
-      updated_at: updated_at
+      created_at: created_at.iso8601,
+      updated_at: updated_at.iso8601
     }
-  end
-
-  private
-
-  def created_at
-    model.created_at.iso8601
-  end
-
-  def updated_at
-    model.updated_at.iso8601
   end
 end

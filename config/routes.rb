@@ -21,5 +21,7 @@ Rails.application.routes.draw do
     resource :sign_in, only: :create
 
     resource :sign_out, only: :destroy
+
+    resources :users, only: [:index, :create, :show, :update, :destroy]
   end
 end
