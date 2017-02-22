@@ -36,6 +36,14 @@ module Backoffice
           key :description, 'Show user'
           key :tags, ['users']
           parameter :authorization
+          parameter do
+            key :name, :id
+            key :in, :path
+            key :description, 'User ID'
+            key :required, true
+            key :type, :integer
+            key :format, :int64
+          end
           response '200' do
             key :description, 'Response with user'
             schema do
@@ -49,6 +57,14 @@ module Backoffice
           key :description, 'Update user'
           key :tags, ['users']
           parameter :authorization
+          parameter do
+            key :name, :id
+            key :in, :path
+            key :description, 'User ID'
+            key :required, true
+            key :type, :integer
+            key :format, :int64
+          end
           response '200' do
             key :description, 'Response with updated user'
             schema do
@@ -62,6 +78,14 @@ module Backoffice
           key :description, 'Update user'
           key :tags, ['users']
           parameter :authorization
+          parameter do
+            key :name, :id
+            key :in, :path
+            key :description, 'User ID'
+            key :required, true
+            key :type, :integer
+            key :format, :int64
+          end
           response '200' do
             key :description, 'Response with updated user'
             schema do
@@ -75,6 +99,14 @@ module Backoffice
           key :description, 'Delete user'
           key :tags, ['users']
           parameter :authorization
+          parameter do
+            key :name, :id
+            key :in, :path
+            key :description, 'User ID'
+            key :required, true
+            key :type, :integer
+            key :format, :int64
+          end
           response '200' do
             key :description, 'Success'
           end
