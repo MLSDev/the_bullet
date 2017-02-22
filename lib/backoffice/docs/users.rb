@@ -50,6 +50,9 @@ module Backoffice
               key :'$ref', :OutputUser
             end
           end
+          response '404' do
+            key :description, 'User not found'
+          end
         end
 
         operation :put do
@@ -70,6 +73,9 @@ module Backoffice
             schema do
               key :'$ref', :OutputUser
             end
+          end
+          response '404' do
+            key :description, 'User not found'
           end
         end
 
@@ -92,6 +98,9 @@ module Backoffice
               key :'$ref', :OutputUser
             end
           end
+          response '404' do
+            key :description, 'User not found'
+          end
         end
 
         operation :delete do
@@ -109,6 +118,9 @@ module Backoffice
           end
           response '200' do
             key :description, 'Success'
+          end
+          response '404' do
+            key :description, 'User not found'
           end
         end
       end
