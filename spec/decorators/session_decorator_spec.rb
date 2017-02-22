@@ -2,31 +2,17 @@ require 'rails_helper'
 
 describe SessionDecorator do
   describe '#as_json' do
-    let(:session) do
-      stub_model Session,
-                 id: 1234,
-                 token: 'token123'
-    end
+    let!(:session) { create(:session) }
 
-    let(:created_at) { double }
+    subject { session.decorate.as_json }
 
-    let(:updated_at) { double }
+    its([:id]) { should eq(session.id) }
 
-    let(:decorated_object) { session.decorate }
+    its([:token]) { should eq(session.token) }
 
-    before { expect(decorated_object).to receive(:created_at).and_return(created_at) }
+    its([:created_at]) { should eq(session.created_at.iso8601) }
 
-    before { expect(decorated_object).to receive(:updated_at).and_return(updated_at) }
-
-    subject { decorated_object.as_json }
-
-    its([:id]) { should eq(1234) }
-
-    its([:token]) { should eq('token123') }
-
-    its([:created_at]) { should eq(created_at) }
-
-    its([:updated_at]) { should eq(updated_at) }
+    its([:updated_at]) { should eq(session.updated_at.iso8601) }
   end
 
   # private methods
