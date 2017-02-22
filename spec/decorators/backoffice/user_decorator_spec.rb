@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Backoffice::UserDecorator do
   describe '#as_json' do
-    let!(:user) { create(:user) }
+    let!(:user) { Backoffice::User.create!(attributes_for(:user)) }
 
     subject { user.decorate.as_json }
 
