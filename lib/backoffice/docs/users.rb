@@ -52,6 +52,7 @@ module Backoffice
             end
           end
           extend Backoffice::Docs::Shared::Unauthorized
+          extend Backoffice::Docs::Shared::UnprocessableEntity
         end
       end
 
@@ -127,6 +128,7 @@ module Backoffice
             key :description, 'User not found'
           end
           extend Backoffice::Docs::Shared::Unauthorized
+          extend Backoffice::Docs::Shared::UnprocessableEntity
         end
 
         operation :patch do
@@ -175,6 +177,7 @@ module Backoffice
             key :description, 'User not found'
           end
           extend Backoffice::Docs::Shared::Unauthorized
+          extend Backoffice::Docs::Shared::UnprocessableEntity
         end
 
         operation :delete do
