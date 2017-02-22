@@ -18,6 +18,10 @@ module Backoffice
         key :name, 'sign out'
         key :description, 'Sign Out operations'
       end
+      tag do
+        key :name, 'users'
+        key :description, 'Users operations'
+      end
       key :host, 'localhost:3000'
       key :basePath, '/backoffice'
       key :consumes, ['application/json']
@@ -30,14 +34,24 @@ module Backoffice
         key :required, true
         key :type, :string
       end
+      parameter :page do
+        key :name, :page
+        key :in, :query
+        key :description, 'Page number'
+        key :required, false
+        key :type, :integer
+        key :format, :int64
+      end
     end
 
     # A list of all classes that have swagger_* declarations.
     SWAGGERED_CLASSES = [
       Backoffice::Docs::Models::OutputSession,
+      Backoffice::Docs::Models::OutputUser,
 
       Backoffice::Docs::SignIns,
       Backoffice::Docs::SignOuts,
+      Backoffice::Docs::Users,
 
       self
     ].freeze

@@ -18,10 +18,12 @@ module Api
           end
           property :created_at do
             key :type, :string
+            key :format, :'date-time'
             key :description, 'Created at in ISO8601 format'
           end
           property :updated_at do
             key :type, :string
+            key :format, :'date-time'
             key :description, 'Updated at in ISO8601 format'
           end
           key :example, id: 123,

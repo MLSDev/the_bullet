@@ -18,16 +18,18 @@ module Api
           end
           property :created_at do
             key :type, :string
+            key :format, :'date-time'
             key :description, 'Created at in ISO8601 format'
           end
           property :updated_at do
             key :type, :string
+            key :format, :'date-time'
             key :description, 'Updated at in ISO8601 format'
           end
-          key :example, { id: 42,
-                          email: 'me@example.com',
-                          created_at: Time.zone.now.iso8601,
-                          updated_at: Time.zone.now.iso8601 }
+          key :example, id: 42,
+                        email: 'me@example.com',
+                        created_at: Time.zone.now.iso8601,
+                        updated_at: Time.zone.now.iso8601
         end
         # :nocov:
       end
