@@ -3,7 +3,7 @@ module Backoffice
     private
 
     def build_resource
-      @user = User.build(resource_params)
+      @user = User.new(resource_params)
     end
 
     def resource

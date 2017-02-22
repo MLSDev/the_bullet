@@ -76,5 +76,91 @@ describe Backoffice::UsersController do
   end
 
   # private methods
-  # TODO: write
+
+  describe '#build_resource' do
+    let(:resource_params) { double }
+
+    let(:user) { double }
+
+    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
+
+    before { expect(Backoffice::User).to receive(:new).with(resource_params).and_return(user) }
+
+    specify { expect { subject.send(:build_resource) }.not_to raise_error }
+
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+  end
+
+  describe '#resource' do
+    context '@user is set' do
+      let(:user) { double }
+
+      before { subject.instance_variable_set(:@user, user) }
+
+      specify { expect(subject.send(:resource)).to eq(user) }
+    end
+
+    context '@user not set' do
+      let(:user) { double }
+
+      let(:params) { { id: '42' } }
+
+      before { expect(subject).to receive(:params).and_return(params) }
+
+      before do
+        #
+        # Backoffice::User.find(params[:id]) => user
+        #
+        expect(Backoffice::User).to receive(:find).with(params[:id]).and_return(user)
+      end
+
+      specify { expect { subject.send(:resource) }.not_to raise_error }
+
+      specify { expect { subject.send(:resource) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+    end
+  end
+
+  describe '#resource_params' do
+    before do
+      #
+      # subject.params.require(:user).permit(:email, :password, :password_confirmation)
+      #
+      expect(subject).to receive(:params) do
+        double.tap do |a|
+          expect(a).to receive(:require).with(:user) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
+            end
+          end
+        end
+      end
+    end
+
+    specify { expect { subject.send(:resource_params) }.not_to raise_error }
+  end
+
+  describe '#collection' do
+    context '@users is set' do
+      let(:users) { double }
+
+      before { subject.instance_variable_set(:@users, users) }
+
+      specify { expect(subject.send(:collection)).to eq(users) }
+    end
+
+    context '@users not set' do
+      let(:users) { double }
+
+      before do
+        #
+        # Backoffice::User.page(params[:page]) => users
+        #
+        expect(Backoffice::User).to receive(:page).with(nil).and_return(users)
+      end
+
+      specify { expect { subject.send(:collection) }.not_to raise_error }
+
+      specify { expect { subject.send(:collection) }.to change { subject.instance_variable_get(:@users) }.from(nil).to(users) }
+    end
+  end
 end
