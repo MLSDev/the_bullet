@@ -9,7 +9,7 @@ module Backoffice
     end
 
     def destroy!
-      token, _ = token_and_options(request)
+      token, = token_and_options(request)
 
       session = Session.find_by!(token: token)
 
