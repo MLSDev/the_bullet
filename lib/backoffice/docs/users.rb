@@ -22,6 +22,27 @@ module Backoffice
           key :description, 'Create new user'
           key :tags, ['users']
           parameter :authorization
+          parameter do
+            key :name, 'user[email]'
+            key :in, :formData
+            key :required, true
+            key :type, :string
+            key :description, 'User email'
+          end
+          parameter do
+            key :name, 'user[password]'
+            key :in, :formData
+            key :required, true
+            key :type, :string
+            key :description, 'User password'
+          end
+          parameter do
+            key :name, 'user[password_confirmation]'
+            key :in, :formData
+            key :required, true
+            key :type, :string
+            key :description, 'User password confirmation'
+          end
           response '200' do
             key :description, 'Response with user'
             schema do
@@ -71,6 +92,27 @@ module Backoffice
             key :type, :integer
             key :format, :int64
           end
+          parameter do
+            key :name, 'user[email]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User email'
+          end
+          parameter do
+            key :name, 'user[password]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User password'
+          end
+          parameter do
+            key :name, 'user[password_confirmation]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User password confirmation'
+          end
           response '200' do
             key :description, 'Response with updated user'
             schema do
@@ -95,6 +137,27 @@ module Backoffice
             key :required, true
             key :type, :integer
             key :format, :int64
+          end
+          parameter do
+            key :name, 'user[email]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User email'
+          end
+          parameter do
+            key :name, 'user[password]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User password'
+          end
+          parameter do
+            key :name, 'user[password_confirmation]'
+            key :in, :formData
+            key :required, false
+            key :type, :string
+            key :description, 'User password confirmation'
           end
           response '200' do
             key :description, 'Response with updated user'
