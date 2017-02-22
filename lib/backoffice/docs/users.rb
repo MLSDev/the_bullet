@@ -14,6 +14,7 @@ module Backoffice
           response '200' do
             key :description, 'Success'
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
 
         operation :post do
@@ -27,6 +28,7 @@ module Backoffice
               key :'$ref', :OutputUser
             end
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
       end
 
@@ -53,6 +55,7 @@ module Backoffice
           response '404' do
             key :description, 'User not found'
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
 
         operation :put do
@@ -77,6 +80,7 @@ module Backoffice
           response '404' do
             key :description, 'User not found'
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
 
         operation :patch do
@@ -101,6 +105,7 @@ module Backoffice
           response '404' do
             key :description, 'User not found'
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
 
         operation :delete do
@@ -122,6 +127,7 @@ module Backoffice
           response '404' do
             key :description, 'User not found'
           end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
       end
       # :nocov:
