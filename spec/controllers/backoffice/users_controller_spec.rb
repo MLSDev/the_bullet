@@ -49,7 +49,25 @@ describe Backoffice::UsersController do
     end
   end
 
-  describe '#create.json' # TODO: write
+  describe '#create.json' do
+    context 'authorized' do
+      let!(:session) { create(:backoffice_session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { post :create, params: { user: attributes_for(:user) }, format: :json }
+
+      it { should render_template(:create) }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { post :create, params: { user: attributes_for(:user) }, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
 
   describe '#update.json' # TODO: write
 
