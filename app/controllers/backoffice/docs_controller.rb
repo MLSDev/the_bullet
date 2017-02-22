@@ -37,7 +37,7 @@ module Backoffice
       parameter :page do
         key :name, :page
         key :in, :query
-        key :description, 'Page number'
+        key :description, 'Page number. Default: 1'
         key :required, false
         key :type, :integer
         key :format, :int64
