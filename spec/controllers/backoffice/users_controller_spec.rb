@@ -69,7 +69,55 @@ describe Backoffice::UsersController do
     end
   end
 
-  describe '#update.json' # TODO: write
+  describe '#update.json' do # rubocop:disable Metrics/BlockLength
+    context 'PUT' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:backoffice_session) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { put :update, params: { id: user.id, user: attributes_for(:user) }, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
+      end
+
+      context 'not authorized' do
+        let!(:user) { create(:user) }
+
+        before { put :update, params: { id: user.id }, format: :json }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+
+    context 'PATCH' do
+      context 'authorized' do
+        let!(:user) { create(:user) }
+
+        let!(:session) { create(:backoffice_session) }
+
+        before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+        before { patch :update, params: { id: user.id, user: attributes_for(:user) }, format: :json }
+
+        it { should render_template(:update) }
+
+        it { should respond_with(:ok) }
+      end
+
+      context 'not authorized' do
+        let!(:user) { create(:user) }
+
+        before { patch :update, params: { id: user.id }, format: :json }
+
+        it { should respond_with(:unauthorized) }
+      end
+    end
+  end
 
   describe '#destroy.json' do
     context 'authorized' do
