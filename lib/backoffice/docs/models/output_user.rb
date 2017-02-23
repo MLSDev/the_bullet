@@ -1,20 +1,20 @@
-module Api
+module Backoffice
   module Docs
     module Models
-      class OutputSession
+      class OutputUser
         # :nocov:
         include Swagger::Blocks
 
-        swagger_schema :OutputSession do
-          key :required, [:id, :token, :created_at, :updated_at]
+        swagger_schema :OutputUser do
+          key :required, [:id, :email, :created_at, :updated_at]
           property :id do
             key :type, :integer
             key :format, :int64
-            key :description, 'Session ID'
+            key :description, 'User ID'
           end
-          property :token do
+          property :email do
             key :type, :string
-            key :description, 'Session token'
+            key :description, 'User email'
           end
           property :created_at do
             key :type, :string
@@ -26,8 +26,8 @@ module Api
             key :format, :'date-time'
             key :description, 'Updated at in ISO8601 format'
           end
-          key :example, id: 123,
-                        token: 'AAkoMiLatQHMngyuUU1vnh5b',
+          key :example, id: 42,
+                        email: 'me@example.com',
                         created_at: Time.zone.now.iso8601,
                         updated_at: Time.zone.now.iso8601
         end

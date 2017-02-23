@@ -13,7 +13,7 @@ module Backoffice
           response '200' do
             key :description, 'Success'
           end
-          # extend Api::Docs::Shared::Unauthorized
+          extend Backoffice::Docs::Shared::Unauthorized
         end
       end
       # :nocov:
