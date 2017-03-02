@@ -16,7 +16,15 @@
 
 Change `url = "http://petstore.swagger.io/v2/swagger.json";` to `url = "http://localhost:3000/api/docs.json";` in `public/dist/index.html`
 
+Or to `http://localhost:3000/backoffice/docs.json` if you need developing backoffice stuff.
+
 Open `http://localhost:3000/dist/index.html` in browser.
+
+## Add backoffice superuser
+
+```ruby
+Backoffice::Superuser.create!(email: 'me@example.com', name: 'John Snow', password: 'password')
+```
 
 ## Guides
 
