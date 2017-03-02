@@ -15,7 +15,7 @@ module Backoffice
     end
 
     def collection
-      @users ||= User.page(params[:page])
+      @users ||= User.order(id: :asc).page(params[:page])
     end
   end
 end

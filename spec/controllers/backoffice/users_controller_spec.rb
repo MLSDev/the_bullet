@@ -219,9 +219,13 @@ describe Backoffice::UsersController do
 
       before do
         #
-        # Backoffice::User.page(params[:page]) => users
+        # Backoffice::User.order(id: :asc).page(params[:page]) => users
         #
-        expect(Backoffice::User).to receive(:page).with(nil).and_return(users)
+        expect(Backoffice::User).to receive(:order).with(id: :asc) do
+          double.tap do |a|
+            expect(a).to receive(:page).with(nil).and_return(users)
+          end
+        end
       end
 
       specify { expect { subject.send(:collection) }.not_to raise_error }

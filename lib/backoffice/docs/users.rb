@@ -12,7 +12,10 @@ module Backoffice
           parameter :authorization
           parameter :page
           response '200' do
-            key :description, 'Success'
+            key :description, 'Response with collection of users'
+            schema do
+              key :'$ref', :OutputUsersCollection
+            end
           end
           extend Backoffice::Docs::Shared::Unauthorized
         end

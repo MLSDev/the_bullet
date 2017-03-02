@@ -48,6 +48,7 @@ module Backoffice
     SWAGGERED_CLASSES = [
       Backoffice::Docs::Models::OutputSession,
       Backoffice::Docs::Models::OutputUser,
+      Backoffice::Docs::Models::OutputUsersCollection,
       Backoffice::Docs::Models::UnprocessableEntity,
 
       Backoffice::Docs::SignIns,
