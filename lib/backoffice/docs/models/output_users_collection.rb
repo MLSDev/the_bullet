@@ -33,16 +33,18 @@ module Backoffice
             key :format, :int64
             key :description, 'Per page value'
           end
-          key :example, total_page: 4,
+          key :example, collection: [
+                          {
+                            id: 42,
+                            email: 'me@example.com',
+                            created_at: Time.zone.now.iso8601,
+                            updated_at: Time.zone.now.iso8601
+                          }
+                        ],
+                        total_page: 4,
                         current_page: 1,
                         total_count: 100,
                         per_page: 25
-
-          # key :example, collection: {},
-          #               total_page: 4,
-          #               current_page: 1,
-          #               total_count: 100,
-          #               per_page: 25
         end
         # :nocov:
       end
