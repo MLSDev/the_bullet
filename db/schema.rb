@@ -12,35 +12,38 @@
 
 ActiveRecord::Schema.define(version: 20170220120928) do
 
-  create_table "backoffice_sessions", force: :cascade do |t|
-    t.integer  "superuser_id"
-    t.string   "token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "backoffice_sessions", id: :serial, force: :cascade do |t|
+    t.integer "superuser_id"
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "backoffice_superusers", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "backoffice_superusers", id: :serial, force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "sessions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "token"
+  create_table "sessions", id: :serial, force: :cascade do |t|
+    t.integer "user_id"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["token"], name: "index_sessions_on_token", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.string   "reset_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "reset_token"
     t.index ["reset_token"], name: "index_users_on_reset_token", unique: true
   end
 
