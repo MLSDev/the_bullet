@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.2'
-gem 'sqlite3'
-gem 'puma'
+gem 'rails', '~> 5.1.1'
+gem 'pg', '~> 0.18'
+gem 'puma', '~> 3.7'
 gem 'bcrypt'
 gem 'redis'
 gem 'redis-objects'
@@ -34,12 +34,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
   gem 'mry'
-  gem 'capistrano'
-  gem 'capistrano-rails'
+  gem 'capistrano', '3.7.2' # TODO: unlock
+  gem 'capistrano-rails', '1.2.2' # TODO: unlock
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
