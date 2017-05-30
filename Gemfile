@@ -30,6 +30,7 @@ group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'faker'
   gem 'factory_girl_rails'
+  gem 'bundler-audit'
 end
 
 group :development do
