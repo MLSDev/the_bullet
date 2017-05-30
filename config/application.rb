@@ -18,11 +18,17 @@ Bundler.require(*Rails.groups)
 
 module TheBullet
   class Application < Rails::Application
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.autoload_paths << Rails.root.join('lib')
+    # Don't generate system test files.
+    config.generators.system_tests = nil
+
+    config.autoload_paths << Rails.root.join('lib') # TODO: remove
 
     # Configure ActiveJob to use sidekiq
     config.active_job.queue_adapter = :sidekiq
