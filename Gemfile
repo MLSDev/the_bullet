@@ -41,7 +41,7 @@ group :development do
   gem 'capistrano-rails'
   # gem 'bullet'
   # gem 'lol_dba'
-  # gem 'brakeman'
+  gem 'brakeman'
 end
 
 group :test do
