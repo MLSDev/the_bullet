@@ -2,7 +2,7 @@
 
 ## Environment
 
-* Ruby 2.4.0
+* Ruby 2.4.1
 * RubyGems 2.6.8
 * Bundler 1.14.5
 * Ruby on Rails 5.0.2
