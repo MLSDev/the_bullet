@@ -129,6 +129,7 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.10.2)
+    mry (0.49.0.0)
     multi_json (1.12.1)
     net-http-persistent (3.0.0)
       connection_pool (~> 2.2)
@@ -296,6 +297,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   lograge
+  mry
   newrelic_rpm
   paperclip
   paperclip-meta
