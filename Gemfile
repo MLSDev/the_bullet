@@ -38,8 +38,8 @@ group :development do
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
   gem 'mry'
-  gem 'capistrano', '3.7.2' # TODO: unlock
-  gem 'capistrano-rails', '1.2.2' # TODO: unlock
+  gem 'capistrano'
+  gem 'capistrano-rails'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support

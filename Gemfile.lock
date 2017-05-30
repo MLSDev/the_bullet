@@ -300,8 +300,8 @@ DEPENDENCIES
   bcrypt_pbkdf
   brakeman
   bundler-audit
-  capistrano (= 3.7.2)
-  capistrano-rails (= 1.2.2)
+  capistrano
+  capistrano-rails
   database_rewinder
   dotenv-rails
   draper
