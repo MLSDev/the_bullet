@@ -18,7 +18,7 @@ Change `url = "http://petstore.swagger.io/v2/swagger.json";` to `url = "http://l
 
 Or to `http://localhost:3000/backoffice/docs.json` if you need developing backoffice stuff.
 
-Open `http://localhost:3000/dist/index.html` in browser.
+Open `http://localhost:3000/swagger-ui/dist/index.html` in browser.
 
 ## Add backoffice superuser
 
