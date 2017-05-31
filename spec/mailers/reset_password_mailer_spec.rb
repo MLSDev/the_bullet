@@ -10,7 +10,7 @@ describe ResetPasswordMailer do
 
     specify { expect(mail.to).to eq([user.email]) }
 
-    specify { expect(mail.from).to eq(['support@example.com']) }
+    specify { expect(mail.from).to eq(['from@example.com']) }
 
     specify { expect(mail.body.encoded).to include(user.reset_token) }
   end
