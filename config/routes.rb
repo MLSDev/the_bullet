@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
     resource :sign_up, only: :create
 
+    resource :sessions, only: [:create, :destroy]
+
     resource :sign_in, only: :create
 
     resource :sign_out, only: :destroy
