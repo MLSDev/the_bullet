@@ -1,10 +1,10 @@
 module Backoffice
   module Docs
-    class SignIns
+    class Sessions
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/sign_in' do
+      swagger_path '/sessions' do
         operation :post do
           key :summary, 'Sign in superuser'
           key :description, 'Sign in superuser'
@@ -31,6 +31,17 @@ module Backoffice
             end
           end
           # extend Api::Docs::Shared::UnprocessableEntity
+        end
+
+        operation :delete do
+          key :summary, 'Sign out superuser'
+          key :description, 'Sign out superuser'
+          key :tags, ['sign out']
+          parameter :authorization
+          response '200' do
+            key :description, 'Success'
+          end
+          extend Backoffice::Docs::Shared::Unauthorized
         end
       end
       # :nocov:
