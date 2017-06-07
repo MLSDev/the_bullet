@@ -51,8 +51,7 @@ module Backoffice
       Backoffice::Docs::Models::OutputUsersCollection,
       Backoffice::Docs::Models::UnprocessableEntity,
 
-      Backoffice::Docs::SignIns,
-      Backoffice::Docs::SignOuts,
+      Backoffice::Docs::Sessions,
       Backoffice::Docs::Users,
 
       self

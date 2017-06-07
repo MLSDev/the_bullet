@@ -1,10 +1,10 @@
 module Api
   module Docs
-    class SignIns
+    class Sessions
       # :nocov:
       include Swagger::Blocks
 
-      swagger_path '/sign_in' do
+      swagger_path '/sessions' do
         operation :post do
           key :summary, 'Sign in'
           key :description, 'Sign in user'
@@ -31,6 +31,17 @@ module Api
             end
           end
           extend Api::Docs::Shared::UnprocessableEntity
+        end
+
+        operation :delete do
+          key :summary, 'Sign out'
+          key :description, 'Sign out user'
+          key :tags, ['sign out']
+          parameter :authorization
+          response '200' do
+            key :description, 'Success'
+          end
+          extend Api::Docs::Shared::Unauthorized
         end
       end
       # :nocov:

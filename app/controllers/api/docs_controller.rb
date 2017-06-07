@@ -55,8 +55,7 @@ module Api
       Api::Docs::Models::UnprocessableEntity,
 
       Api::Docs::SignUps,
-      Api::Docs::SignIns,
-      Api::Docs::SignOuts,
+      Api::Docs::Sessions,
       Api::Docs::Profiles,
       Api::Docs::RequestPasswordResets,
       Api::Docs::PasswordResets,

@@ -4,9 +4,7 @@ Rails.application.routes.draw do
 
     resource :sign_up, only: :create
 
-    resource :sign_in, only: :create
-
-    resource :sign_out, only: :destroy
+    resource :sessions, only: [:create, :destroy]
 
     resource :profile, only: :show
 
@@ -18,9 +16,7 @@ Rails.application.routes.draw do
   namespace :backoffice, defaults: { format: 'json' } do
     resources :docs, only: :index
 
-    resource :sign_in, only: :create
-
-    resource :sign_out, only: :destroy
+    resource :sessions, only: [:create, :destroy]
 
     resources :users, only: [:index, :create, :show, :update, :destroy]
   end

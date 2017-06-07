@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-describe Backoffice::SignInsController do
+describe Backoffice::SessionsController do
   it { should be_a(Backoffice::BaseController) }
 
-  it { should_not use_before_action(:authenticate!) }
+  pending { should use_before_action(:authenticate!).only(:destroy) }
 
-  describe '#create.json' do
+  describe '#create' do
     context 'successful authorization' do
       let!(:superuser) { create(:backoffice_superuser, password: 'password') }
 
@@ -29,28 +29,46 @@ describe Backoffice::SignInsController do
     end
   end
 
+  describe '#destroy' do
+    context 'authorized' do
+      let!(:session) { create(:backoffice_session) }
+
+      before { request.env['HTTP_AUTHORIZATION'] = "Bearer #{ session.token }" }
+
+      before { delete :destroy, format: :json }
+
+      it { should respond_with(:ok) }
+    end
+
+    context 'not authorized' do
+      before { delete :destroy, format: :json }
+
+      it { should respond_with(:unauthorized) }
+    end
+  end
+
   # private methods
 
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    let(:sign_in) { double }
+    let(:session) { double }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(Backoffice::SignIn).to receive(:new).with(resource_params).and_return(sign_in) }
+    before { expect(Backoffice::SignIn).to receive(:new).with(resource_params).and_return(session) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
-    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@sign_in) }.from(nil).to(sign_in) }
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@session) }.from(nil).to(session) }
   end
 
   describe '#resource' do
-    let(:sign_in) { double }
+    let(:session) { double }
 
-    before { subject.instance_variable_set(:@sign_in, sign_in) }
+    before { subject.instance_variable_set(:@session, session) }
 
-    specify { expect(subject.send(:resource)).to eq(sign_in) }
+    specify { expect(subject.send(:resource)).to eq(session) }
   end
 
   describe '#resource_params' do
