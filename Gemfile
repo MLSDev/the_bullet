@@ -11,7 +11,7 @@ gem 'kaminari'
 gem 'dotenv-rails'
 gem 'draper'
 gem 'pundit'
-gem 'sidekiq'
+gem 'sidekiq', require: false
 gem 'rpush'
 gem 'paperclip'
 gem 'paperclip-meta'
@@ -30,14 +30,14 @@ group :development, :test do
   gem 'awesome_print', require: 'ap'
   gem 'faker'
   gem 'factory_girl_rails'
-  gem 'bundler-audit'
+  gem 'bundler-audit', require: false
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
-  gem 'mry'
+  gem 'mry', require: false
   gem 'capistrano'
   gem 'capistrano-rails'
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
