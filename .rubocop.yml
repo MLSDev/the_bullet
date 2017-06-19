@@ -17,6 +17,8 @@ AllCops:
     - 'bin/whenever'
     - 'bin/wheneverize'
     - 'bin/mry'
+    - 'bin/puma'
+    - 'bin/pumactl'
     - 'config/initializers/assets.rb'
     - 'config/initializers/backtrace_silencers.rb'
     - 'config/initializers/new_framework_defaults.rb'
