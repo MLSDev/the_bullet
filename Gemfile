@@ -38,14 +38,14 @@ group :development do
   # rubocop version locked due config. Update rubocop config on gem update.
   gem 'rubocop', '0.49.1', require: false
   gem 'mry', require: false
-  gem 'capistrano'
-  gem 'capistrano-rails'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
   gem 'bcrypt_pbkdf' # for rbnacl-libsodium
   gem 'rbnacl', '< 4.0' # for rbnacl-libsodium
   gem 'rbnacl-libsodium' # for ssh-ed25519 support
   # gem 'bullet'
   # gem 'lol_dba'
-  gem 'brakeman'
+  gem 'brakeman', require: false
 end
 
 group :test do
