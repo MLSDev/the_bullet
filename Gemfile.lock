@@ -279,7 +279,7 @@ GEM
     sshkit (1.13.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-    swagger-blocks (2.0.0)
+    swagger-blocks (2.0.2)
     thor (0.19.4)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
@@ -337,4 +337,4 @@ DEPENDENCIES
   swagger-blocks
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
