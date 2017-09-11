@@ -280,7 +280,7 @@ GEM
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     swagger-blocks (2.0.2)
-    thor (0.19.4)
+    thor (0.20.0)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
