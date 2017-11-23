@@ -331,7 +331,7 @@ DEPENDENCIES
   rspec-activemodel-mocks
   rspec-its
   rspec-rails
-  rubocop (= 0.49.1)
+  rubocop
   shoulda-callback-matchers
   shoulda-matchers
   sidekiq
