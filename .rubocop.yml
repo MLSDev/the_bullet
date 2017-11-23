@@ -16,3 +16,8 @@ Naming/FileName:
   Exclude:
     - 'config/initializers/rack-cors.rb'
     - 'spec/support/shoulda-matchers.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'app/documentation/**/*.rb'
+    - 'spec/**/*_spec.rb'
