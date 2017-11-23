@@ -21,3 +21,7 @@ Metrics/BlockLength:
   Exclude:
     - 'app/documentation/**/*.rb'
     - 'spec/**/*_spec.rb'
+
+Metrics/ClassLength:
+  Exclude:
+    - 'app/documentation/**/*.rb'
