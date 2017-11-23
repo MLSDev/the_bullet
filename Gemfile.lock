@@ -275,7 +275,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sshkit (1.14.0)
+    sshkit (1.15.1)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     swagger-blocks (2.0.2)
