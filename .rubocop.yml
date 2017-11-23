@@ -11,3 +11,8 @@ AllCops:
   Exclude:
     - 'bin/*'
     - 'db/schema.rb'
+
+Naming/FileName:
+  Exclude:
+    - 'config/initializers/rack-cors.rb'
+    - 'spec/support/shoulda-matchers.rb'
