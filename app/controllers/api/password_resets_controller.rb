@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class PasswordResetsController < BaseController
     skip_before_action :authenticate!

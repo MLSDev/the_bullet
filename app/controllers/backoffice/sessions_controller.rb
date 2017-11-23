@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Backoffice
   class SessionsController < BaseController
     before_action :authenticate!, only: :destroy

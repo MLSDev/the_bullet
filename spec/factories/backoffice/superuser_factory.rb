@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :backoffice_superuser, class: 'Backoffice::Superuser' do
     email { Faker::Internet.email }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # rubocop:disable Style/FileName
 
 # Be sure to restart your server when you modify this file.

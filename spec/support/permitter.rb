@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # module Permitter
 #   def permit(params)
 #     ActionController::Parameters.new(params).permit!

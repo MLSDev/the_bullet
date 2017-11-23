@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   class SignUp
     attr_reader :params, :session

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Backoffice
   class SignIn
     include ActiveModel::Validations
