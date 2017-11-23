@@ -50,7 +50,7 @@ GEM
     awesome_print (1.8.0)
     bcrypt (3.1.11)
     bcrypt_pbkdf (1.0.0)
-    brakeman (3.7.2)
+    brakeman (4.0.1)
     builder (3.2.3)
     bundler-audit (0.6.0)
       bundler (~> 1.2)
