@@ -19,7 +19,10 @@ Naming/FileName:
 
 Metrics/BlockLength:
   Exclude:
+    - 'app/controllers/api/docs_controller.rb'
+    - 'app/controllers/backoffice/docs_controller.rb'
     - 'app/documentation/**/*.rb'
+    - 'lib/capistrano/tasks/systemd.rake'
     - 'spec/**/*_spec.rb'
 
 Metrics/ClassLength:
