@@ -36,6 +36,8 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-thread_safety', require: false
   gem 'mry', require: false
   gem 'capistrano', require: false
   gem 'capistrano-rails', require: false
