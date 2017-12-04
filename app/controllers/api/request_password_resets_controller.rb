@@ -1,29 +1,19 @@
 # frozen_string_literal: true
 
-module Api
-  class RequestPasswordResetsController < BaseController
-    skip_before_action :authenticate!
+class Api::RequestPasswordResetsController < BaseController
+  skip_before_action :authenticate!
 
-    def create
-      build_resource
+  private
 
-      resource.save!
+  def build_resource
+    @request_password_reset = Api::RequestPasswordReset.new(resource_params)
+  end
 
-      head :ok
-    end
+  def resource
+    @request_password_reset
+  end
 
-    private
-
-    def build_resource
-      @request_password_reset = Api::RequestPasswordReset.new(resource_params)
-    end
-
-    def resource
-      @request_password_reset
-    end
-
-    def resource_params
-      params.permit(:email)
-    end
+  def resource_params
+    params.permit(:email)
   end
 end

@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-module Api
-  class ProfilesController < BaseController
-    private
+class Api::ProfilesController < BaseController
+  private
 
-    def resource
-      current_user
-    end
+  def resource
+    current_user
   end
 end

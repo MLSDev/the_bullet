@@ -1,27 +1,25 @@
 # frozen_string_literal: true
 
-module Api
-  class SessionsController < BaseController
-    before_action :authenticate!, only: :destroy
+class Api::SessionsController < BaseController
+  before_action :authenticate!, only: :destroy
 
-    def destroy
-      Api::SignOut.new(request).destroy!
+  def destroy
+    Api::SignOut.new(request).destroy!
 
-      head :ok
-    end
+    head :ok
+  end
 
-    private
+  private
 
-    def build_resource
-      @session = Api::SignIn.new(resource_params)
-    end
+  def build_resource
+    @session = Api::SignIn.new(resource_params)
+  end
 
-    def resource
-      @session
-    end
+  def resource
+    @session
+  end
 
-    def resource_params
-      params.permit(:email, :password)
-    end
+  def resource_params
+    params.permit(:email, :password)
   end
 end
