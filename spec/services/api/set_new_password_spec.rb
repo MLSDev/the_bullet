@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::PasswordReset, type: :model do
+describe Api::SetNewPassword, type: :model do
   it { should be_a(ActiveModel::Validations) }
 
   it { should delegate_method(:decorate).to(:session) }

@@ -13,18 +13,6 @@ class Backoffice::DocsController < ActionController::Base
       key :title, 'Example Backoffice REST API'
       key :description, 'Example Backoffice REST API'
     end
-    tag do
-      key :name, 'sign in'
-      key :description, 'Sign In operations'
-    end
-    tag do
-      key :name, 'sign out'
-      key :description, 'Sign Out operations'
-    end
-    tag do
-      key :name, 'users'
-      key :description, 'Users operations'
-    end
     key :host, 'localhost:3000'
     key :basePath, '/backoffice'
     key :consumes, ['application/json']

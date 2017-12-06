@@ -6,7 +6,7 @@ class Backoffice::BaseController < ApplicationController
 
   def authenticate!
     authenticate_or_request_with_http_token do |token,|
-      @current_user = Superuser.joins(:sessions)
+      @current_user = Backoffice::Superuser.joins(:sessions)
                                .where(backoffice_sessions: { token: token })
                                .first
     end

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-module Backoffice
-  class User < ::User
-  end
+class Backoffice::User < ::User
+
 end

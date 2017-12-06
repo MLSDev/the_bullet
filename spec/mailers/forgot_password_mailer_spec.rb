@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe ResetPasswordMailer do
+describe ForgotPasswordMailer do
   describe '#email' do
     let(:user) { create(:user) }
 

@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-class Api::PasswordResetsController < BaseController
+class Api::SetNewPasswordsController < Api::BaseController
   skip_before_action :authenticate!
 
   private
 
   def build_resource
-    @password_reset = Api::PasswordReset.new(resource_params)
+    @set_new_password = Api::SetNewPassword.new(resource_params)
   end
 
   def resource
-    @password_reset
+    @set_new_password
   end
 
   def resource_params

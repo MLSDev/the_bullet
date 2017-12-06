@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class Api::SessionsController < BaseController
+class Api::SessionsController < Api::BaseController
   before_action :authenticate!, only: :destroy
 
   def destroy
     Api::SignOut.new(request).destroy!
 
-    head :ok
+    head :no_content
   end
 
   private

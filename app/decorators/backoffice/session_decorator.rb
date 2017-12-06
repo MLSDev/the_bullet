@@ -1,16 +1,13 @@
 # frozen_string_literal: true
 
-module Backoffice
-  class SessionDecorator < Draper::Decorator
-    delegate_all
+class Backoffice::SessionDecorator < Draper::Decorator
+  delegate_all
+  decorates_association :user
 
-    def as_json(*)
-      {
-        id: id,
-        token: token,
-        created_at: created_at.iso8601,
-        updated_at: updated_at.iso8601
-      }
-    end
+  def as_json(*)
+    {
+      user:  superuser,
+      token: token
+    }
   end
 end

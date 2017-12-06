@@ -61,7 +61,7 @@ describe Backoffice::UsersController do
 
       it { should render_template(:create) }
 
-      it { should respond_with(:ok) }
+      it { should respond_with(:created) }
     end
 
     context 'not authorized' do
@@ -131,7 +131,7 @@ describe Backoffice::UsersController do
 
       before { delete :destroy, params: { id: user.id }, format: :json }
 
-      it { should respond_with(:ok) }
+      it { should respond_with(:no_content) }
     end
 
     context 'not authorized' do
@@ -146,13 +146,13 @@ describe Backoffice::UsersController do
   # private methods
 
   describe '#build_resource' do
-    let(:resource_params) { double }
+    let(:resource_params) { ActionController::Parameters.new(email: Faker::Internet.email, password: Faker::Internet.password).permit! }
 
-    let(:user) { double }
+    let(:user) { Backoffice::User.new(resource_params) }
 
-    before { expect(subject).to receive(:resource_params).and_return(resource_params) }
+    before { allow(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(Backoffice::User).to receive(:new).with(resource_params).and_return(user) }
+    # before { expect(Backoffice::User).to receive(:new).with(resource_params).and_return(user) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
@@ -169,18 +169,13 @@ describe Backoffice::UsersController do
     end
 
     context '@user not set' do
-      let(:user) { double }
+      let(:user) { stub_model Backoffice::User, id: 42 }
 
       let(:params) { { id: '42' } }
 
       before { expect(subject).to receive(:params).and_return(params) }
 
-      before do
-        #
-        # Backoffice::User.find(params[:id]) => user
-        #
-        expect(Backoffice::User).to receive(:find).with(params[:id]).and_return(user)
-      end
+      before { expect(Backoffice::User).to receive(:find).with(params[:id]).and_return(user) }
 
       specify { expect { subject.send(:resource) }.not_to raise_error }
 

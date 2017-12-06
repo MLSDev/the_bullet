@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ResetPasswordMailer < ApplicationMailer
+class ForgotPasswordMailer < ApplicationMailer
   def email(id)
     @user = User.find(id)
 

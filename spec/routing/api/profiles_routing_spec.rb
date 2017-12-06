@@ -11,5 +11,13 @@ describe Api::ProfilesController do
         format: 'json'
       )
     end
+
+    it 'should route POST /api/profile to api/profiles#create' do
+      expect(post: '/api/profile').to route_to(
+        controller: 'api/profiles',
+        action: 'create',
+        format: 'json'
+      )
+    end
   end
 end

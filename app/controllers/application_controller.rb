@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     resource.save!
 
-    head :created
+    render status: 201
   end
 
   def update
@@ -38,8 +38,10 @@ class ApplicationController < ActionController::Base
     render :errors, status: :unprocessable_entity
   end
 
-  rescue_from ActiveRecord::RecordNotFound do
-    head :not_found
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    @exception = exception
+
+    render :exception, status: :not_found
   end
   # :nocov:
 

@@ -4,16 +4,14 @@ require 'rails_helper'
 
 describe Backoffice::SessionDecorator do
   describe '#as_json' do
-    let!(:session) { create(:backoffice_session) }
+    let!(:superuser) { create(:backoffice_superuser) }
+
+    let!(:session) { create(:backoffice_session, superuser: superuser) }
 
     subject { session.decorate.as_json }
 
-    its([:id]) { should eq(session.id) }
+    its([:user]) { should eq(superuser) }
 
     its([:token]) { should eq(session.token) }
-
-    its([:created_at]) { should eq(session.created_at.iso8601) }
-
-    its([:updated_at]) { should eq(session.updated_at.iso8601) }
   end
 end

@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-module Backoffice
-  class Session < ApplicationRecord
-    belongs_to :superuser
+class Backoffice::Session < ApplicationRecord
+  belongs_to :superuser
 
-    has_secure_token
-  end
+  has_secure_token
 end

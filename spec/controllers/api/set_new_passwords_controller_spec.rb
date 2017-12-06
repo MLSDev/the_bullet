@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::PasswordResetsController do
+describe Api::SetNewPasswordsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
@@ -20,7 +20,7 @@ describe Api::PasswordResetsController do
 
       it { should render_template(:create) }
 
-      it { should respond_with(:ok) }
+      it { should respond_with(:created) }
     end
 
     context 'reset token not found' do
@@ -57,23 +57,23 @@ describe Api::PasswordResetsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    let(:password_reset) { double }
+    let(:set_new_password) { double }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(Api::PasswordReset).to receive(:new).with(resource_params).and_return(password_reset) }
+    before { expect(Api::SetNewPassword).to receive(:new).with(resource_params).and_return(set_new_password) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
-    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@password_reset) }.from(nil).to(password_reset) }
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@set_new_password) }.from(nil).to(set_new_password) }
   end
 
   describe '#resource' do
-    let(:password_reset) { double }
+    let(:set_new_password) { double }
 
-    before { subject.instance_variable_set(:@password_reset, password_reset) }
+    before { subject.instance_variable_set(:@set_new_password, set_new_password) }
 
-    specify { expect(subject.send(:resource)).to eq(password_reset) }
+    specify { expect(subject.send(:resource)).to eq(set_new_password) }
   end
 
   describe '#resource_params' do

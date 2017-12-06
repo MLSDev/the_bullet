@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-class Backoffice::SessionsController < BaseController
+class Backoffice::SessionsController < Backoffice::BaseController
   before_action :authenticate!, only: :destroy
 
   def destroy
     Backoffice::SignOut.new(request).destroy!
 
-    head :ok
+    head :no_content
   end
 
   private

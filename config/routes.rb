@@ -3,16 +3,13 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     resources :docs, only: :index
-
-    resource :sign_up, only: :create
-
     resource :sessions, only: [:create, :destroy]
 
-    resource :profile, only: :show
+    resource :profile, only: [:create, :show]
 
-    resource :request_password_reset, only: :create
+    resource :forgot_password, only: :create
 
-    resource :password_reset, only: :create
+    resource :set_new_password, only: :create
   end
 
   namespace :backoffice, defaults: { format: 'json' } do

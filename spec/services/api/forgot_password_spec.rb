@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::RequestPasswordReset do
+describe Api::ForgotPassword do
   it { should be_a(ActiveModel::Validations) }
 
   describe '#initialize' do
@@ -33,7 +33,7 @@ describe Api::RequestPasswordReset do
         #
         # ResetPasswordMailer.email(user.id).deliver_later
         #
-        expect(ResetPasswordMailer).to receive(:email).with(user.id) do
+        expect(ForgotPasswordMailer).to receive(:email).with(user.id) do
           double.tap do |a|
             expect(a).to receive(:deliver_later)
           end

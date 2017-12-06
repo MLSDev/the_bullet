@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe Api::RequestPasswordResetsController do
+describe Api::ForgotPasswordsController do
   it { should be_a(Api::BaseController) }
 
   it { should_not use_before_action(:authenticate!) }
@@ -15,7 +15,7 @@ describe Api::RequestPasswordResetsController do
         post :create, params: { email: user.email, format: :json }
       end
 
-      it { should respond_with(:ok) }
+      it { should respond_with(:created) }
     end
 
     context 'email not found' do
@@ -34,23 +34,23 @@ describe Api::RequestPasswordResetsController do
   describe '#build_resource' do
     let(:resource_params) { double }
 
-    let(:request_password_reset) { double }
+    let(:forgot_password) { double }
 
     before { expect(subject).to receive(:resource_params).and_return(resource_params) }
 
-    before { expect(Api::RequestPasswordReset).to receive(:new).with(resource_params).and_return(request_password_reset) }
+    before { expect(Api::ForgotPassword).to receive(:new).with(resource_params).and_return(forgot_password) }
 
     specify { expect { subject.send(:build_resource) }.not_to raise_error }
 
-    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@request_password_reset) }.from(nil).to(request_password_reset) }
+    specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@forgot_password) }.from(nil).to(forgot_password) }
   end
 
   describe '#resource' do
-    let(:request_password_reset) { double }
+    let(:forgot_password) { double }
 
-    before { subject.instance_variable_set(:@request_password_reset, request_password_reset) }
+    before { subject.instance_variable_set(:@forgot_password, forgot_password) }
 
-    specify { expect(subject.send(:resource)).to eq(request_password_reset) }
+    specify { expect(subject.send(:resource)).to eq(forgot_password) }
   end
 
   describe '#resource_params' do

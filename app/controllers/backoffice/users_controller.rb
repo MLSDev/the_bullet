@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Backoffice::UsersController < BaseController
+class Backoffice::UsersController < Backoffice::BaseController
   private
 
   def build_resource
