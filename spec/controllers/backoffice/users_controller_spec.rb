@@ -152,11 +152,11 @@ describe Backoffice::UsersController do
 
     before { allow(subject).to receive(:resource_params).and_return(resource_params) }
 
-    # before { expect(Backoffice::User).to receive(:new).with(resource_params).and_return(user) }
-
-    specify { expect { subject.send(:build_resource) }.not_to raise_error }
+    before { expect(Backoffice::User).to receive(:new).with(resource_params).and_return(user) }
 
     specify { expect { subject.send(:build_resource) }.to change { subject.instance_variable_get(:@user) }.from(nil).to(user) }
+
+    specify { expect { subject.send(:build_resource) }.not_to raise_error }
   end
 
   describe '#resource' do

@@ -2,7 +2,9 @@
 
 require 'rails_helper'
 
-describe Api::BaseController do
+describe ApplicationController do
+  render_views
+
   it { should use_before_action(:authenticate!) }
 
   describe '#current_user' do
@@ -21,6 +23,8 @@ describe Api::BaseController do
     before { expect(subject).to receive(:resource).and_return(resource) }
 
     before { expect(resource).to receive(:save!) }
+
+    before { expect(subject).to receive(:render) }
 
     specify { expect { subject.create }.not_to raise_error }
   end

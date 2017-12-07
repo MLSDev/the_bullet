@@ -4,11 +4,11 @@ class Backoffice::UsersController < Backoffice::BaseController
   private
 
   def build_resource
-    @user = User.new(resource_params)
+    @user = Backoffice::User.new(resource_params)
   end
 
   def resource
-    @user ||= User.find(params[:id])
+    @user ||= Backoffice::User.find(params[:id])
   end
 
   def resource_params
@@ -16,6 +16,6 @@ class Backoffice::UsersController < Backoffice::BaseController
   end
 
   def collection
-    @users ||= User.order(id: :asc).page(params[:page])
+    @users ||= Backoffice::User.order(id: :asc).page(params[:page])
   end
 end
