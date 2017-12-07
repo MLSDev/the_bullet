@@ -24,9 +24,11 @@ class Api::SetNewPassword
   def save!
     raise ActiveModel::StrictValidationFailed unless valid?
 
-    user.sessions.destroy_all
+    user.transaction do
+      user.update!(password: password, reset_token: nil)
 
-    create_session!
+      user.sessions.destroy_all
+    end
   end
 
   private

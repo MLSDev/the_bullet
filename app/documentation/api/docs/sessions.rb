@@ -10,19 +10,13 @@ class Api::Docs::Sessions
       key :description, 'Sign in user'
       key :tags, ['Sessions']
       parameter do
-        key :name, :email
-        key :in, :formData
+        key :name, :session
+        key :in, :body
         key :required, true
-        key :type, :string
-        key :description, 'User email'
-      end
-      parameter do
-        key :name, :password
-        key :in, :formData
-        key :required, true
-        key :type, :string
-        key :format, :password
-        key :description, 'User password'
+        key :description, 'Session object'
+        schema do
+          key :'$ref', :SessionBody
+        end
       end
       response '201' do
         key :description, 'Created'
@@ -32,7 +26,9 @@ class Api::Docs::Sessions
       end
       extend Api::Docs::Shared::UnprocessableEntity
     end
+  end
 
+  swagger_path '/profile' do
     operation :delete do
       key :summary, 'Sign out'
       key :description, 'Sign out user'

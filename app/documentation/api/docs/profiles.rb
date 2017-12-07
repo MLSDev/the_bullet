@@ -10,27 +10,13 @@ class Api::Docs::Profiles
       key :description, 'Sign up new user.'
       key :tags, ['Profile']
       parameter do
-        key :name, :email
-        key :in, :formData
+        key :name, :profile
+        key :in, :body
         key :required, true
-        key :type, :string
-        key :description, 'User email'
-      end
-      parameter do
-        key :name, :password
-        key :in, :formData
-        key :required, true
-        key :type, :string
-        key :format, :password
-        key :description, 'User password'
-      end
-      parameter do
-        key :name, :password_confirmation
-        key :in, :formData
-        key :required, true
-        key :type, :string
-        key :format, :password
-        key :description, 'User password confirmation'
+        key :description, 'Profile Object'
+        schema do
+          key :'$ref', :ProfileBody
+        end
       end
       response '201' do
         key :description, 'Created'

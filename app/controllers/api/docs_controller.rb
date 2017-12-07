@@ -33,6 +33,10 @@ module Api
       Api::Docs::Models::OutputUser,
       Api::Docs::Models::OutputSession,
       Api::Docs::Models::UnprocessableEntity,
+      Api::Docs::Models::ForgotPasswordBody,
+      Api::Docs::Models::SetNewPasswordBody,
+      Api::Docs::Models::ProfileBody,
+      Api::Docs::Models::SessionBody,
 
       Api::Docs::Sessions,
       Api::Docs::Profiles,

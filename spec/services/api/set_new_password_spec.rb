@@ -45,8 +45,13 @@ describe Api::SetNewPassword, type: :model do
 
       subject { described_class.new(params) }
 
-      # TODO: user.sessions.destroy_all
-      # TODO: create_session!
+      before { allow(subject).to receive(:user).and_return user }
+
+      before { allow(subject).to receive(:password).and_return 'new password' }
+
+      before { expect(user).to receive(:update!).with(password: 'new password', reset_token: nil).and_return true }
+
+      before { expect(user).to receive_message_chain(:sessions, :destroy_all) }
 
       specify { expect { subject.save! }.not_to raise_error }
     end
