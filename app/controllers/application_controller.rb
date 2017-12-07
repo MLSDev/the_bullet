@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
     resource.save!
 
-    render :create, status: :created
+    render status: 201
   end
 
   def update

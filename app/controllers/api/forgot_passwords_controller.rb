@@ -3,6 +3,14 @@
 class Api::ForgotPasswordsController < Api::BaseController
   skip_before_action :authenticate!
 
+  def create
+    build_resource
+
+    resource.save!
+
+    head :no_content
+  end
+
   private
 
   def build_resource
@@ -14,6 +22,6 @@ class Api::ForgotPasswordsController < Api::BaseController
   end
 
   def resource_params
-    params.permit(:email)
+    params.require(:forgot_password).permit(:email)
   end
 end

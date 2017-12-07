@@ -3,6 +3,14 @@
 class Api::SetNewPasswordsController < Api::BaseController
   skip_before_action :authenticate!
 
+  def create
+    build_resource
+
+    resource.save!
+
+    head :no_content
+  end
+
   private
 
   def build_resource
@@ -14,6 +22,6 @@ class Api::SetNewPasswordsController < Api::BaseController
   end
 
   def resource_params
-    params.permit(:reset_token, :password, :password_confirmation)
+    params.require(:set_new_password).permit(:reset_token, :password, :password_confirmation)
   end
 end

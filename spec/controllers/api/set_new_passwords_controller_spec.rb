@@ -12,23 +12,25 @@ describe Api::SetNewPasswordsController do
       let!(:user) { create(:user) }
 
       before do
-        post :create, params: { reset_token: user.reset_token,
-                                password: 'new password',
-                                password_confirmation: 'new password',
-                                format: :json }
+        post :create, params: { set_new_password: {
+                                  reset_token: user.reset_token,
+                                  password: 'new password',
+                                  password_confirmation: 'new password',
+                                  format: :json }
+                              }
       end
 
-      it { should render_template(:create) }
-
-      it { should respond_with(:created) }
+      it { should respond_with(:no_content) }
     end
 
     context 'reset token not found' do
       before do
-        post :create, params: { reset_token: 'wrong reset token',
-                                password: 'new password',
-                                password_confirmation: 'new password',
-                                format: :json }
+        post :create, params: { set_new_password: {
+                                  reset_token: 'wrong reset token',
+                                  password: 'new password',
+                                  password_confirmation: 'new password' },
+                                format: :json
+                              }
       end
 
       it { should render_template(:errors) }
@@ -40,10 +42,12 @@ describe Api::SetNewPasswordsController do
       let!(:user) { create(:user) }
 
       before do
-        post :create, params: { reset_token: user.reset_token,
-                                password: 'new password',
-                                password_confirmation: 'wrong confirmation',
-                                format: :json }
+        post :create, params: { set_new_password: {
+                                  reset_token: user.reset_token,
+                                  password: 'new password',
+                                  password_confirmation: 'wrong confirmation' },
+                                  format: :json
+                              }
       end
 
       it { should render_template(:errors) }
@@ -83,7 +87,11 @@ describe Api::SetNewPasswordsController do
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:reset_token, :password, :password_confirmation)
+          expect(a).to receive(:require).with(:set_new_password) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:reset_token, :password, :password_confirmation)
+            end
+          end
         end
       end
     end

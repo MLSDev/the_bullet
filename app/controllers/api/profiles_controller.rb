@@ -13,7 +13,7 @@ class Api::ProfilesController < Api::BaseController
   end
 
   def resource_params
-    params.permit(:email, :password, :password_confirmation)
+    params.require(:profile).permit(:email, :password, :password_confirmation)
   end
 end
 

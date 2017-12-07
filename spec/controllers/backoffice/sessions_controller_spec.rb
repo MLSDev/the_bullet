@@ -12,7 +12,7 @@ describe Backoffice::SessionsController do
       let!(:superuser) { create(:backoffice_superuser, password: 'password') }
 
       before do
-        post :create, params: { email: superuser.email, password: 'password', format: :json }
+        post :create, params: { session: { email: superuser.email, password: 'password'}, format: :json }
       end
 
       it { should render_template(:create) }
@@ -22,7 +22,7 @@ describe Backoffice::SessionsController do
 
     context 'failed authorization' do
       before do
-        post :create, params: { email: 'me@example.com', password: 'password', format: :json }
+        post :create, params: { session: { email: 'me@example.com', password: 'password'}, format: :json }
       end
 
       it { should render_template(:errors) }
@@ -80,11 +80,13 @@ describe Backoffice::SessionsController do
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email, :password)
+          expect(a).to receive(:require).with(:session) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password)
+            end
+          end
         end
       end
     end
-
-    specify { expect { subject.send(:resource_params) }.not_to raise_error }
   end
 end

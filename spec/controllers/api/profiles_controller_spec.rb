@@ -40,10 +40,13 @@ describe Api::ProfilesController do
   describe '#create.json' do
     context 'user successfully created' do
       before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'password',
-                                format: :json }
+        post :create, params: { profile: {
+                                  email: 'me@example.com',
+                                  password: 'password',
+                                  password_confirmation: 'password',
+                                 },
+                                 format: :json
+                              }
       end
 
       it { should render_template(:create) }
@@ -53,10 +56,13 @@ describe Api::ProfilesController do
 
     context 'unprocessable entity' do
       before do
-        post :create, params: { email: 'me@example.com',
-                                password: 'password',
-                                password_confirmation: 'wrong confirmation',
-                                format: :json }
+        post :create, params: { profile: {
+                                  email: 'me@example.com',
+                                  password: 'password',
+                                  password_confirmation: 'wrong confirmation',
+                                 },
+                                format: :json
+                              }
       end
 
       it { should render_template(:errors) }
@@ -96,7 +102,11 @@ describe Api::ProfilesController do
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email, :password, :password_confirmation)
+          expect(a).to receive(:require).with(:profile) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email, :password, :password_confirmation)
+            end
+          end
         end
       end
     end

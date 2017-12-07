@@ -20,6 +20,6 @@ class Backoffice::SessionsController < Backoffice::BaseController
   end
 
   def resource_params
-    params.permit(:email, :password)
+    params.require(:session).permit(:email, :password)
   end
 end

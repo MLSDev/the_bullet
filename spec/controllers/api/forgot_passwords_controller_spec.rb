@@ -12,15 +12,15 @@ describe Api::ForgotPasswordsController do
       let!(:user) { create(:user) }
 
       before do
-        post :create, params: { email: user.email, format: :json }
+        post :create, params: { forgot_password: { email: user.email }, format: :json }
       end
 
-      it { should respond_with(:created) }
+      it { should respond_with(:no_content) }
     end
 
     context 'email not found' do
       before do
-        post :create, params: { email: 'me@example.com', format: :json }
+        post :create, params: { forgot_password: { email: 'me@example.com' }, format: :json }
       end
 
       it { should render_template(:errors) }
@@ -60,7 +60,11 @@ describe Api::ForgotPasswordsController do
       #
       expect(subject).to receive(:params) do
         double.tap do |a|
-          expect(a).to receive(:permit).with(:email)
+          expect(a).to receive(:require).with(:forgot_password) do
+            double.tap do |b|
+              expect(b).to receive(:permit).with(:email)
+            end
+          end
         end
       end
     end
