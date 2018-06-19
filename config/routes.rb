@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resource :request_password_reset, only: :create
 
     resource :password_reset, only: :create
+
+    resource :facebook, only: :create
   end
 
   namespace :backoffice, defaults: { format: 'json' } do
